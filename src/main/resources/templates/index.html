@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMP</title>
+</head>
+<body>
+    <h1>Hello,All Emps</h1>
+    <a th:href="@{/add}">Add Employee</a>
+
+    <h2>Employee List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="emp:${emplist}">
+                <td th:text="${emp.id}"></td>
+                <td th:text="${emp.name}"></td>
+                <td th:text="${emp.email}"></td>
+                <td>
+                    <a th:href="@{/updatedEmp/{id}(id=${emp.id})}">Update</a>
+                    <a th:href="@{/deleteEmp/{id}(id=${emp.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    
+        
+    </table>
+</body>
+</html>
